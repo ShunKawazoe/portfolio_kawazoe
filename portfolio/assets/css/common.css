@@ -1,0 +1,430 @@
+@charset "UTF-8";
+
+/* CSS Document */
+html {
+  font-size: 62.5%;
+  /* 16px * 62.5% = 10px */
+  width: 100%;
+  transition: all 1.6s ease 0s;
+}
+
+body {
+  color: #333;
+  /* RGB */
+  font-family: "源ノ角ゴシック JP", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+h2 span {
+  display: inline-block;
+  transition: transform 1s;
+  transition-timing-function: cubic-bezier(.165, .84, .44, 1);
+  transform: translate3d(0, 100%, 0);
+}
+
+.scroll-in {
+  transform: translate3d(0,0,0);
+}
+
+.none {
+  display: none;
+}
+
+/* ヘッダー */
+.header {
+  padding: 20px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-head {
+  width: 206px;
+}
+
+.header-head a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-head img {
+  width: 60px;
+}
+
+.header-head h1 {
+  font-size: 2.4rem;
+  letter-spacing: .1em;
+  padding-bottom: 10px;
+  margin-left: 20px;
+}
+
+.globalMenuSp * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.globalMenuSp img {
+  display: none;
+}
+
+.globalMenuSp ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.globalMenuSp li {
+  display: inline-block;
+  margin-left: 30px;
+  list-style: outside none none;
+  overflow: hidden;
+}
+
+.globalMenuSp li a {
+  text-decoration: none;
+  letter-spacing: .1em;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #aeaeae;
+  position: relative;
+  display: inline-block;
+  padding: 0 5px 0 3px;
+}
+
+.globalMenuSp li a:before,
+.globalMenuSp li a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.globalMenuSp li a:before {
+  right: 100%;
+  display: block;
+  width: 3px;
+  height: 100%;
+  content: "";
+  background-color: #efd81d;
+}
+
+.globalMenuSp li a:after {
+  padding: 0 5px 0 3px;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  content: attr(data-hover);
+  color: #333;
+  white-space: nowrap;
+}
+
+.globalMenuSp li:hover a,
+.globalMenuSp .current a {
+  transform: translateX(100%);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+      margin: 0 auto;
+  }
+
+  /* ハンバーガー */
+  .globalMenuSp li a:before,
+  .globalMenuSp li a:after {
+      display: none;
+  }
+
+  .globalMenuSp li:hover a,
+  .globalMenuSp .current a {
+      transform: unset;
+  }
+
+  .globalMenuSp li,
+  .globalMenuSp li:first-child {
+      display: block;
+  }
+
+  .hamburger {
+      display: block;
+      position: fixed;
+      z-index: 3;
+      right: 17px;
+      top: 24px;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      text-align: center;
+  }
+
+  .hamburger span {
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      left: 6px;
+      background: #333;
+      -webkit-transition: 0.5s all;
+      -moz-transition: 0.5s all;
+      transition: 0.5s all;
+  }
+
+  .hamburger span:nth-child(1) {
+      top: 10px;
+  }
+
+  .hamburger span:nth-child(2) {
+      top: 20px;
+  }
+
+  .hamburger span:nth-child(3) {
+      top: 30px;
+  }
+
+  /* ナビ開いてる時のボタン */
+
+  .hamburger.active span:nth-child(1) {
+      top: 16px;
+      left: 6px;
+      width: 24px;
+      background: #333;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+      left: 60%;
+      opacity: 0;
+      -webkit-animation: active-btn17-bar02 .8s forwards;
+      animation: active-hamburger-bar02 .8s forwards;
+  }
+
+  @-webkit-keyframes active-hamburger-bar02 {
+      100% {
+          height: 0;
+      }
+  }
+
+  @keyframes active-hamburger-bar02 {
+      100% {
+          height: 0;
+      }
+  }
+
+  .hamburger.active span:nth-child(3) {
+      top: 16px;
+      width: 24px;
+      background: #333;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      transform: rotate(45deg);
+  }
+
+  nav.globalMenuSp {
+      position: fixed;
+      z-index: -2;
+      top: 0;
+      left: 0;
+      color: #fff;
+      background: #fff;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: .6s ease, visibility .6s ease;
+      padding-top: 60px;
+  }
+
+  .globalMenuSp img {
+      display: inline-block;
+      width: 150px;
+      margin-bottom: 60px;
+  }
+
+  .header ul {
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+      display: block;
+  }
+
+  .globalMenuSp li {
+      list-style-type: none;
+      padding: 10px 0;
+      width: 100%;
+      transition: .4s all;
+      margin: 0 0 30px;
+  }
+
+  .globalMenuSp li:last-child {
+      padding-bottom: 0;
+  }
+
+  .globalMenuSp li a {
+      display: inline-block;
+      color: #333;
+      text-decoration: none;
+      font-size: 5.0rem;
+  }
+
+  nav.globalMenuSp ul li a:hover {
+      color: #aeaeae;
+  }
+
+  /* このクラスを、jQueryで付与・削除する */
+  nav.globalMenuSp.active {
+      opacity: 100;
+      z-index: 2;
+      transition: .6s ease;
+  }
+
+}
+
+/* ボタン */
+.btn {
+  border: solid 1px #333;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 190px;
+  margin: 0 auto;
+  padding: 5px 0;
+  overflow: hidden;
+  position: relative;
+  transition: 0.4s;
+}
+
+.btn:hover {
+  background-color: #ababab;
+
+}
+
+.btn:hover:before {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.btn:before {
+  content: attr(data-hover);
+  color: #fff;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 1.4rem;
+  opacity: 0;
+  transform: translate(-100%, 0);
+  transition: all .3s ease-in-out;
+}
+
+.btn:hover h3 {
+  opacity: 0;
+  transform: translate(100%, 0)
+}
+
+.btn h3 {
+  letter-spacing: 3px;
+  font-weight: 800;
+  transition: all .3s ease-in-out;
+}
+
+.footer {
+  width: 100%;
+  background-color: #ababab;
+  padding: 100px 0;
+}
+
+.footer small {
+  font-size: 1.4rem;
+}
+
+/* モーダル */
+.modal-default {
+  position: relative;
+  text-align: left;
+}
+
+.modal-close {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.modal-default h3 {
+  font-size: 2.0rem;
+  margin-bottom: 20px;
+}
+
+.modal-default h4 {
+  margin-top: 30px;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.modal-default p {
+  text-align: left;
+}
+
+
+/* ロード */
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.loader .txt {
+  font-size: 4.0rem;
+  color: #333;
+  letter-spacing: 1.0rem;
+  margin-bottom: 100px;
+}
+
+.loader-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 4px;
+  border-color: #000000 #00000010 #00000010 #00000010;
+  position: relative;
+  animation-name: stagger;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-i-out;
+}
+
+@keyframes stagger {
+  25% {
+      border-color: #00000010 #000000 #00000010 #00000010;
+  }
+
+  50% {
+      border-color: #00000010 #00000010 #000000 #00000010;
+  }
+
+  75% {
+      border-color: #00000010 #00000010 #00000010 #000000;
+  }
+}

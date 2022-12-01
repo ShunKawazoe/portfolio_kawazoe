@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+body {
+    height: 100vh;
+    transition: 0s;
+}
+
+.contact-form {
+    margin: 50px 30px;
+    padding: 50px 30px;
+    background-color: #eeeeee;
+}
+
+.title {
+    text-align: center;
+    font-size: 3.0rem;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+form {
+    width: 450px;
+    margin: 0 auto;
+}
+
+.item {
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 0 25px;
+}
+
+.label {
+    float: left;
+    text-align: left;
+    margin: 0 5px 5px 0;
+    width: 135px;
+}
+
+.inputs {
+    float: left;
+    width: 100%;
+}
+
+input [type="text"],
+input [type="email"] {
+    border: 1px solid #333;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+textarea {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    height: 160px;
+    width: 97%;
+    font-size: 1.5rem;
+}
+
+.btn-area {
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    position: relative;
+    transition: .4s ease;
+    background-color: #828282;
+}
+
+input[type="submit"] {
+    background-color: #aeaeae;
+    border: none;
+    padding: 7px 30px;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+@media screen and (max-width: 600px) {
+    .contact-form {
+        margin: 50px 24px;
+        padding: 50px 20px;
+        background-color: #eeeeee;
+    }
+
+    form {
+        width: 270px;
+    }
+
+    .label {
+        float: left;
+        text-align: left;
+        width: 100%;
+    }
+
+    .item {
+        overflow: hidden;
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+}
